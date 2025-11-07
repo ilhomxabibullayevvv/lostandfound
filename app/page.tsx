@@ -43,7 +43,13 @@ export default function Page() {
 
       <div className="grid gap-4">
         {filtered.length ? (
-          filtered.map((item) => <ItemCard key={item.id} item={item} onMarkDone={markDone} />)
+          filtered.map((item, index) => (
+            <ItemCard
+              key={`${item.id}-${index}`}
+              item={item}
+              onMarkDone={markDone}
+            />
+          ))
         ) : (
           <p>No items match your criteria.</p>
         )}
